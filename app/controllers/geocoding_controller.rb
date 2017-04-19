@@ -17,8 +17,8 @@ class GeocodingController < ApplicationController
 
     @street_addy_down = @street_address.downcase
     @street_addy_pluses = @street_addy_down.gsub(" ","+")
-    url = "http://maps.googleapis.com/maps/api/geocode/json?address=" + @street_addy_pluses
-    parsed_data = JSON.parse(open(url).read)
+    url_geo = "http://maps.googleapis.com/maps/api/geocode/json?address=" + @street_addy_pluses
+    parsed_data = JSON.parse(open(url_geo).read)
     latitude = parsed_data["results"][0]["geometry"]["location"]["lat"]
     longitude = parsed_data["results"][0]["geometry"]["location"]["lng"]
 
